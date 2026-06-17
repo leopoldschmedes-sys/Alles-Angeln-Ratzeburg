@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Alles Angeln in Ratzeburg: Angelzubehör, Lebendköder, Erlaubnisscheine, Öffnungszeiten und Kontakt auf einer kompakten Seite."
+    >
+    <title>Alles Angeln Ratzeburg</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17201c;
+        --muted: #5a665f;
+        --paper: #fbfaf5;
+        --panel: #ffffff;
+        --line: #d7ded8;
+        --lake: #236b72;
+        --reed: #708a45;
+        --sun: #d56f39;
+        --deep: #102a2d;
+        --shadow: 0 18px 48px rgba(16, 42, 45, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .controlbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 10px clamp(14px, 3vw, 32px);
+        border-bottom: 1px solid rgba(16, 42, 45, 0.15);
+        background: rgba(251, 250, 245, 0.92);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        min-width: 0;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--deep);
+        color: #f7e9be;
+        font-weight: 800;
+      }
+
+      .brand strong {
+        display: block;
+        line-height: 1;
+      }
+
+      .brand-copy {
+        display: block;
+        min-width: 0;
+      }
+
+      .brand-place {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .nav {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a,
+      .action {
+        flex: 0 0 auto;
+        min-height: 38px;
+        padding: 9px 12px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--deep);
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .nav a:hover {
+        border-color: var(--line);
+        background: #fff;
+      }
+
+      .action {
+        border-color: var(--deep);
+        background: var(--deep);
+        color: #fff;
+      }
+
+      .hero {
+        min-height: calc(100vh - 59px);
+        display: grid;
+        align-items: end;
+        padding: clamp(24px, 4vw, 54px);
+        background:
+          linear-gradient(90deg, rgba(10, 26, 27, 0.78), rgba(10, 26, 27, 0.3) 48%, rgba(10, 26, 27, 0.08)),
+          url("assets/hero-fishing.png") center / cover;
+      }
+
+      .hero-inner {
+        width: min(820px, 100%);
+        color: #fff;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: #f7e9be;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(3rem, 9vw, 7.8rem);
+        line-height: 0.9;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 600px;
+        margin: 22px 0 28px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 11px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        border-color: #f7e9be;
+        background: #f7e9be;
+        color: var(--deep);
+      }
+
+      main {
+        display: grid;
+        gap: 0;
+      }
+
+      section {
+        padding: clamp(42px, 7vw, 84px) clamp(18px, 4vw, 54px);
+        scroll-margin-top: 78px;
+      }
+
+      section:nth-child(even) {
+        background: #eef3ee;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100vw - clamp(18px, 4vw, 54px) * 2));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: flex;
+        gap: 24px;
+        align-items: end;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.35rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-head p {
+        max-width: 460px;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-width: 0;
+        min-height: 100%;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 10px 28px rgba(16, 42, 45, 0.07);
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-size: 1.25rem;
+      }
+
+      .card p,
+      .card ul {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .card ul {
+        padding-left: 20px;
+      }
+
+      .hours {
+        display: grid;
+        gap: 10px;
+      }
+
+      .hour-row {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hour-row:last-child {
+        border-bottom: 0;
+      }
+
+      .hour-row strong {
+        color: var(--deep);
+      }
+
+      .permit-list {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        gap: 16px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+        table-layout: fixed;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--deep);
+        color: #fff;
+        font-size: 0.88rem;
+      }
+
+      td {
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+
+      .contact-band {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .map {
+        min-height: 320px;
+        border: 0;
+        border-radius: 8px;
+        filter: saturate(0.95);
+      }
+
+      .contact-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .contact-actions a {
+        display: flex;
+        gap: 10px;
+        min-height: 46px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .contact-actions span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      footer {
+        padding: 28px clamp(18px, 4vw, 54px);
+        background: var(--deep);
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      footer .wrap {
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      footer a {
+        color: #f7e9be;
+      }
+
+      @media (max-width: 860px) {
+        .controlbar {
+          grid-template-columns: 1fr auto;
+        }
+
+        .brand-place {
+          display: none;
+        }
+
+        .nav {
+          grid-column: 1 / -1;
+          justify-content: start;
+          order: 3;
+        }
+
+        .hero {
+          min-height: 720px;
+          padding-top: 92px;
+        }
+
+        .section-head,
+        .contact-band,
+        .permit-list {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .action {
+          padding-inline: 10px;
+        }
+
+        .hero-actions {
+          display: grid;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .hour-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="controlbar" aria-label="Seitensteuerung">
+      <a class="brand" href="#top" aria-label="Zum Seitenanfang">
+        <span class="mark">AA</span>
+        <span class="brand-copy">
+          <strong>Alles Angeln</strong>
+          <span class="brand-place">Ratzeburg</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Abschnitte">
+        <a href="#zeiten">Öffnungszeiten</a>
+        <a href="#koeder">Lebendköder</a>
+        <a href="#scheine">Erlaubnisscheine</a>
+        <a href="#anfahrt">Anfahrt</a>
+        <a href="#aktuelles">Aktuelles</a>
+      </nav>
+      <a class="action" href="tel:+4945418030565">Anrufen</a>
+    </header>
+
+    <div id="top" class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Angelgeschäft in Ratzeburg</p>
+        <h1>Alles Angeln</h1>
+        <p>
+          Köder, Zubehör und Erlaubnisscheine für Ratzeburger Seen, Trave und Kleinen Mustiner See.
+          Direkt in der Großen Wallstraße 4.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#zeiten">Heute planen</a>
+          <a class="button" href="mailto:Info@allesangeln-rz.de">E-Mail schreiben</a>
+          <a class="button" href="#anfahrt">Route ansehen</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section id="zeiten">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Öffnungszeiten</h2>
+            <p>Für Einkauf, Beratung und Abholung ist der Laden werktags mit Mittagspause geöffnet.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h3>Montag bis Freitag</h3>
+              <div class="hours">
+                <div class="hour-row"><strong>Vormittag</strong><span>09:00 bis 13:00 Uhr</span></div>
+                <div class="hour-row"><strong>Nachmittag</strong><span>15:00 bis 18:00 Uhr</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Samstag</h3>
+              <div class="hours">
+                <div class="hour-row"><strong>Geöffnet</strong><span>09:00 bis 14:00 Uhr</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Schneller Kontakt</h3>
+              <p>Bei Fragen zu Verfügbarkeit, Ködern oder Scheinen einfach kurz im Laden anrufen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="koeder">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Lebendköder</h2>
+            <p>Viele gängige Lebendköder sind vorrätig, Spezialköder können vorher bestellt werden.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h3>Vor Ort</h3>
+              <ul>
+                <li>Lebendköder in vielen Arten</li>
+                <li>Beratung passend zu Gewässer und Zielfisch</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Auf Bestellung</h3>
+              <p>Speziallebendköder wie Wattwürmer sind nach vorheriger Bestellung erhältlich.</p>
+            </article>
+            <article class="card">
+              <h3>Abholen</h3>
+              <p>Für sichere Verfügbarkeit am besten vor der Tour telefonisch nachfragen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="scheine">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Erlaubnisscheine</h2>
+            <p>Im Laden gibt es Angelkarten für mehrere regionale Gewässer. Angaben zu Preisen ohne Gewähr.</p>
+          </div>
+          <div class="permit-list">
+            <article class="card">
+              <h3>Erhältliche Scheine</h3>
+              <ul>
+                <li>Angelscheine für die Ratzeburger Seen</li>
+                <li>Angelscheine für die Trave, 28 Tage und Jahreskarten</li>
+                <li>Angelerlaubnisschein für den Kleinen Mustiner See</li>
+              </ul>
+            </article>
+            <div class="card">
+              <h3>Kleiner Mustiner See</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Karte</th>
+                    <th>Erwachsene</th>
+                    <th>Jugendliche</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tageskarte</td>
+                    <td>7,50 EUR</td>
+                    <td>5,00 EUR</td>
+                  </tr>
+                  <tr>
+                    <td>Wochenkarte</td>
+                    <td>35,00 EUR</td>
+                    <td>25,00 EUR</td>
+                  </tr>
+                  <tr>
+                    <td>2 Wochenkarten</td>
+                    <td>65,00 EUR</td>
+                    <td>45,00 EUR</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anfahrt">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Anfahrt</h2>
+            <p>Der Laden liegt zentral in Ratzeburg und ist direkt über die Großen Wallstraße erreichbar.</p>
+          </div>
+          <div class="contact-band">
+            <article class="card">
+              <h3>Hier finden Sie mich</h3>
+              <p>
+                Alles Angeln<br>
+                Große Wallstr. 4<br>
+                23909 Ratzeburg
+              </p>
+              <div class="contact-actions">
+                <a href="tel:+4945418030565"><span>04541 8030565</span><span>Telefon</span></a>
+                <a href="mailto:Info@allesangeln-rz.de"><span>Info@allesangeln-rz.de</span><span>E-Mail</span></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Alles%20Angeln%20Gro%C3%9Fe%20Wallstr.%204%2023909%20Ratzeburg"><span>Route öffnen</span><span>Karte</span></a>
+              </div>
+            </article>
+            <iframe
+              class="map"
+              title="Karte: Alles Angeln in Ratzeburg"
+              loading="lazy"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=10.7446%2C53.6979%2C10.7559%2C53.7036&layer=mapnik&marker=53.70075%2C10.75025"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="aktuelles">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Aktuelles</h2>
+            <p>Kurze Hinweise aus dem Laden, damit die nächste Tour schnell vorbereitet ist.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h3>Jahreskarten</h3>
+              <p>Jahreskarten für Ratzeburger Seen, Kleinen Mustiner See und Trave sind erhältlich.</p>
+            </article>
+            <article class="card">
+              <h3>Geschenkkorb</h3>
+              <p>Ein Geschenkkorb mit Angelzubehör ist eine gute Idee für Anglerinnen und Angler.</p>
+            </article>
+            <article class="card">
+              <h3>Wattwürmer</h3>
+              <p>Wattwürmer sind auf Bestellung erhältlich. Bitte rechtzeitig nachfragen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© Malte Stapelfeldt · Alles Angeln</span>
+        <a href="https://www.facebook.com/Alles-Angeln-Ratzeburg-1133588586664678/?fref=ts">Facebook</a>
+      </div>
+    </footer>
+  </body>
+</html>
